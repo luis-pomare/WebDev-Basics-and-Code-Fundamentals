@@ -1,3 +1,17 @@
 h1 {
   color: #b7410e;
 }
+
+a {
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease, border-bottom 0.3s ease;
+  border-bottom: 1px solid transparent;
+  display: block;
+  width: fit-content;
+}
+
+a:hover {
+  color: #d35400;
+  border-bottom: 1px solid #d35400;
+}
