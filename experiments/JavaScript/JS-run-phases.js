@@ -20,14 +20,9 @@ function sayHi() {
   return { name: "Hello", number: 7, counter };
 }
 
-// `var counter` is hoisted to the top of the global scope
-// During the creation phase, it is initialized with `undefined`
+// During the creation phase, counter is initialized with `undefined`
 // The assignment `counter = 10` inside sayHi() works because `var`
 // allows access before the declaration line is reached
 var counter = 0;
 
-// If this were changed to:
-// let counter = 0
-// the code would throw a ReferenceError
-// because `let` variables exist in the Temporal Dead Zone (TDZ)
-// and cannot be accessed or assigned before their declaration
+// If this were changed to: let counter = 0 the code would throw a ReferenceError because `let` variables exist in the Temporal Dead Zone (TDZ) and cannot be accessed or assigned before their declaration
