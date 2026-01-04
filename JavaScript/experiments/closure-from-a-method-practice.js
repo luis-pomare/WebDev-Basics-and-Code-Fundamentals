@@ -1,16 +1,18 @@
 function linearFunctionCreator(m, b) {
+  // An object is created and returned and contains a function that closes over m and b
   return {
     functionWithClosures: function (value) {
-      return m * value + b
+      return m * value + b;
     }
-  }
+  };
 }
 
-const caller = linearFunctionCreator(1, 0)
+const caller = linearFunctionCreator(1, 0);
 
-const unitLinear = caller.functionWithClosures
+// A reference to the inner object is extracted with the closure over m and b
+const unitLinearFunction = caller.functionWithClosures;
 
-console.log(unitLinear(3))
-console.log(unitLinear(4))
-console.log(unitLinear(5))
 
+console.log(unitLinearFunction(3));
+console.log(unitLinearFunction(4));
+console.log(unitLinearFunction(5));
