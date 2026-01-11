@@ -16,10 +16,11 @@ const users = {
 
 
 function fetchUser(id) {
-  return Promise.resolve({ id, name: "Alice" })
+  return Promise.resolve(Object.values(users).find(user => user.id === id) || null)
 }
 
 function fetchPosts(user) {
+  console.log(user)
   return Promise.resolve([
     { title: "Post 1", likes: 5 },
     { title: "Post 2", likes: 10 }
