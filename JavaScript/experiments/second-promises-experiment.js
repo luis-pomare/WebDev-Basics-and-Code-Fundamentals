@@ -1,3 +1,20 @@
+const users = {
+  Alice: {
+    id: 1,
+    posts: [
+      { title: "Post 1", likes: 5 },
+      { title: "Post 2", likes: 10 }
+    ]
+  },
+  Jil: {
+    id: 2,
+    posts: [
+      { title: "Post I", likes: 3 }
+    ]
+  }
+}
+
+
 function fetchUser(id) {
   return Promise.resolve({ id, name: "Alice" })
 }
