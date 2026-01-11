@@ -20,6 +20,8 @@ function fetchUser(id) {
 }
 
 function fetchPosts(user) {
+  if (!user) throw new Error("The user does not exist");
+
   return Promise.resolve(user.posts)
 }
 
@@ -35,9 +37,20 @@ function savePosts(posts) {
   return Promise.resolve("OK")
 }
 
+fetchUser(1)
+  .then(fetchPosts)
+  .then(transformPosts)
+  .then(savePosts)
+  .catch(console.error)
+
 fetchUser(2)
   .then(fetchPosts)
   .then(transformPosts)
   .then(savePosts)
-  .then(console.log)
+  .catch(console.error)
+
+fetchUser(3)
+  .then(fetchPosts)
+  .then(transformPosts)
+  .then(savePosts)
   .catch(console.error)
