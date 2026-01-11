@@ -9,7 +9,7 @@ const users = {
   Jil: {
     id: 2,
     posts: [
-      { title: "Post I", likes: 3 }
+      { title: "Post I", likes: 30 }
     ]
   }
 }
@@ -20,11 +20,7 @@ function fetchUser(id) {
 }
 
 function fetchPosts(user) {
-  console.log(user)
-  return Promise.resolve([
-    { title: "Post 1", likes: 5 },
-    { title: "Post 2", likes: 10 }
-  ])
+  return Promise.resolve(user.posts)
 }
 
 function transformPosts(posts) {
@@ -39,7 +35,7 @@ function savePosts(posts) {
   return Promise.resolve("OK")
 }
 
-fetchUser(1)
+fetchUser(2)
   .then(fetchPosts)
   .then(transformPosts)
   .then(savePosts)
