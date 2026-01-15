@@ -1,8 +1,13 @@
-// Receives a callback, executes it after 1 second, and passes the value 10 to it
+// Receives a callback, executes it after 3 seconds, and passes the value 10 to it
 
 
 function runLater(callback) {
-  // your code
+  /* This would be perfectly valid and usable
+  setTimeout(callback, 10000, 10)
+  */
+  setTimeout(() => {
+    callback(10)
+  }, 3000);
 }
 
 runLater(value => console.log(value))
