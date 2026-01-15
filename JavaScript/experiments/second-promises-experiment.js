@@ -1,3 +1,4 @@
+// Hardcoded Each user with an id and a list of posts.
 const users = {
   Alice: {
     id: 1,
@@ -15,12 +16,15 @@ const users = {
 }
 
 
+// Fetches a user asynchronously by id this simulates an async I/O operation (e.g., database or API call).
 function fetchUser(id) {
-  return Promise.resolve(Object.values(users).find(user => user.id === id) || null)
+  return Promise.resolve(
+    Object.values(users).find(user => user.id === id) || null
+  )
 }
 
 function fetchPosts(user) {
-  if (!user) throw new Error("The user does not exist");
+  if (!user) throw new Error("The user does not exist")
 
   return Promise.resolve(user.posts)
 }
