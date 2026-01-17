@@ -6,12 +6,27 @@ function executor(value) {
   })
 }
 
-function printCountdown(value) {
-  if (value < 0) return executor('Done')
-  return executor(value).then(v => { // executor returns a promise
-    console.log(v)
-    return printCountdown(v - 1)
+function printCountdown(value, numberOfTimes) {
+  if (numberOfTimes <= 0) return executor('Done')
+  return executor(value).then(() => { // executor returns a promise
+    console.log(value)
+    return printCountdown(value, numberOfTimes - 1)
   })
 }
 
-printCountdown(15).then(console.log)
+printCountdown('JS', 3)
+  .then(
+    (value) => {
+      console.log(value)
+      printCountdown('CSS', 2)
+        .then(
+          (value) => {
+            console.log(value)
+            printCountdown('HTML', 1)
+              .then(
+                console.log
+              )
+          }
+        )
+    }
+  )
