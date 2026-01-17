@@ -1,15 +1,17 @@
-// Inputs (a, b) Prints a given (a) value each second for (b) number of times 
-
 function executor(value) {
   return new Promise(resolve => {
     setTimeout(() => {
-      console.log(value)
       resolve(value)
-    }, 3000)
+    }, 1000)
   })
 }
 
-executor(1)
-  .then(() => executor(2))
-  .then(() => executor(3))
+function printCountdown(value) {
+  if (value < 0) return executor('Done')
+  return executor(value).then(v => { // executor returns a promise
+    console.log(v)
+    return printCountdown(v - 1)
+  })
+}
 
+printCountdown(15).then(console.log)
