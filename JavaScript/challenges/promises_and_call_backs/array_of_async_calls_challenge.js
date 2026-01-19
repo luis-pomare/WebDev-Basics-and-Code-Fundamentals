@@ -7,11 +7,15 @@ function delayWithDouble(ms, value) {
   })
 }
 
-async function arrayCreator() {
+async function arrayCreator(userNumber) {
   let arrayOfDoubles = []
-  let currentValue = await delayWithDouble(3000, 9)
-  arrayOfDoubles.push(currentValue)
+
+  for (let i = 0; i <= userNumber; i++) {
+    let currentValue = await delayWithDouble(3000, i)
+    arrayOfDoubles.push(currentValue)
+  }
+
   return arrayOfDoubles
 }
 
-arrayCreator().then(console.log)
+arrayCreator(7).then(console.log)
