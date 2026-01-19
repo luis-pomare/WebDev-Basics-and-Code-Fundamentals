@@ -11,11 +11,13 @@ async function arrayCreator(userNumber) {
   let arrayOfDoubles = []
 
   for (let i = 0; i <= userNumber; i++) {
-    let currentValue = await delayWithDouble(3000, i)
+    let currentValue = await delayWithDouble(1000, i)
     arrayOfDoubles.push(currentValue)
+    console.log(arrayOfDoubles)
   }
 
   return arrayOfDoubles
 }
 
-arrayCreator(7).then(console.log)
+
+arrayCreator(5).then(value => console.log("The final result is: " + value))
