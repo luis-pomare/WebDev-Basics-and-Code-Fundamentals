@@ -8,7 +8,10 @@ function delayWithDouble(ms, value) {
 }
 
 async function arrayCreator() {
-  return await delayWithDouble(3000, 7)
+  let arrayOfDoubles = []
+  let currentValue = await delayWithDouble(3000, 9)
+  arrayOfDoubles.push(currentValue)
+  return arrayOfDoubles
 }
 
 arrayCreator().then(console.log)
