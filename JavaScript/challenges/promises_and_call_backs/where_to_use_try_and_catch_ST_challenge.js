@@ -10,6 +10,11 @@ async function safeFetch() {
   // Calls unstableFetch
   // If it succeeds → return value
   // If it fails → return "fallback value"
+  try {
+    return await unstableFetch()
+  } catch {
+    return "Fallback value"
+  }
 }
 
 safeFetch().then(console.log)
