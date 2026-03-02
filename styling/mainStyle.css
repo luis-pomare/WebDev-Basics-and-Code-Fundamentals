@@ -1,3 +1,8 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
 h1 {
   color: #b7410e;
 }
@@ -18,8 +23,31 @@ a:hover {
   border-bottom: 1px solid #d35400;
 }
 
-* {
-  border: 3px solid #000;
-  margin: 0px;
-  padding: 0px;
+/* 1. Reset the list defaults */
+.nav-links {
+  display: flex;
+  justify-content: space-evenly;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* 2. Style the individual links */
+.nav-links li a {
+  display: block;
+  text-decoration: none;
+  padding: 20px 30px;
+  font-size: 14px;
+  letter-spacing: 1px;
+  transition: background 0.3s;
+}
+
+/* 3. The purple "Active" state */
+.nav-links li.active a {
+  background-color: #7d3e08aa; /* Purple accent */
+}
+
+/* 4. Hover effect */
+.nav-links li a:hover {
+  background-color: #333;
 }
